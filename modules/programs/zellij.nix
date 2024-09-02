@@ -80,12 +80,12 @@ in {
     # https://github.com/zellij-org/zellij/releases/tag/v0.32.0
     xdg.configFile."zellij/config.yaml" = mkIf
       (cfg.settings != { } && (versionOlder cfg.package.version "0.32.0")) {
-        source = yamlFormat.generate "zellij.yaml" cfg.settings;
+        source = yamlFormat.generate "zellij.yaml" cfg.settings cfg.extraConfig;
       };
 
     xdg.configFile."zellij/config.kdl" = mkIf
       (cfg.settings != { } && (versionAtLeast cfg.package.version "0.32.0")) {
-        text = lib.hm.generators.toKDL { } cfg.settings;
+        text = lib.hm.generators.toKDL { } cfg.settings cfg.extraConfig;
       };
 
     programs.bash.initExtra = mkIf cfg.enableBashIntegration (mkOrder 200 ''
