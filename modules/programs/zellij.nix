@@ -41,6 +41,25 @@ in {
       '';
     };
 
+    # extraConfig = mkOption {
+    #   default = { };
+    #   example = literalExpression ''
+    #     {
+    #         theme "custom"
+    #         themes {
+    #             custom {
+    #                 fg "#e6e6e8"
+    #             }
+    #         }
+    #         plugins {
+    #             tab-bar location="zellij:tab-bar"
+    #             status-bar location="zellij:status-bar"
+    #         }
+    #   '';
+    #   type = configType;
+    #   description = "Additional configuration to add.";
+    # };
+
     enableBashIntegration = mkEnableOption "Bash integration" // {
       default = false;
     };
