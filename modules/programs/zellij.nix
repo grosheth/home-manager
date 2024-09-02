@@ -55,8 +55,9 @@ in {
     #             tab-bar location="zellij:tab-bar"
     #             status-bar location="zellij:status-bar"
     #         }
+    #     }
     #   '';
-    #   type = configType;
+    #   type = configType.kdl;
     #   description = "Additional configuration to add.";
     # };
 
